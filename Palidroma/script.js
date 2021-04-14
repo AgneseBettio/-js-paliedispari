@@ -17,32 +17,30 @@ function validazioneParola(parolaUtente) {
 }
 if (!validazioneParola(parolaUtente)) {
     console.log("sono accettate solo parole")
-} else { 
-    var parolaAnalizzata = parolaUtente;   
+} else {
     console.log("la parola scritta " + parolaUtente + " è accetta e verrà analizzata dalla funzione");
+    var stampaRisultato;
+    if(parolaPalindroma(parolaUtente)){
+        stampaRisultato = "La parola " + parolaUtente + " e\' palindroma"
+        console.log("palindroma");
+    } else {
+        stampaRisultato = "La parola " + parolaUtente + " non e\' palindroma"
+        console.log("non palindroma");
+    }
+    document.getElementById("result-test-palindromo").innerHTML = stampaRisultato;
 }
+
 
 
 //una funzione per capire se la parola inserita è palindroma
-
-function parolaPalindroma(parolaAnalizzata) {
-    var matchPalindromo;
-    //lettura parola da sinistra
-    for (var i = 0; i < parolaAnalizzata.lenght; i++) {
-        matchPalindromo = 0;
-        //lettura parola da destra
-        for (var j = parolaAnalizzata.lenght; j >= 0; j--) {
-            if (parolaAnalizzata[i] === parolaAnalizzata[j]) {
-                matchPalindromo++;
-            }
-        }
-        if (matchPalindromo === i && matchPalindromo === j) {
-            parolaAnalizzata = true;
-            console.log( parolaAnalizzata + " è palindroma")
-        } else {
-            parolaAnalizzata = false;
-            console.log( parolaAnalizzata + " non è palindroma")
-        }
+function parolaPalindroma(parola) {
+    //lettura parola da sinistra default
+    var parolaInversa = ""
+    //lettura parola da destra
+    for (var j = parola.length - 1; j >= 0; j--) {
+        parolaInversa += parola[j];
     }
+    return parolaInversa === parola;
 }
+    
 
