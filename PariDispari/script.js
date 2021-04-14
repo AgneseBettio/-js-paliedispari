@@ -15,10 +15,11 @@ if (sceltaAzzardo === "pari" || sceltaAzzardo === "dispari") {
         alert("il numero scelto non è valido");
     } else {
         giocoPariDispari(numeroUtente, sceltaAzzardo);
+        document.getElementById("risultato-vincita").innerHTML = vincitore;
     }
 } else {
     alert("per giocare devi scrivere 'pari' o 'dispari'");
-    document.getElementById("risultato-vincita").innerHTML = vincitore;
+    
 }
 //creo una funzione per generare il numero random
 function numRandom() {
@@ -36,23 +37,23 @@ function giocoPariDispari(numUser, wordUser) {
     //fatta somma random + numero utente verifico le 4 condizione
     if (somma % 2 === 0 && wordUser === "pari") {
         console.log( vincitore + somma + "vince");
-        vincitore = "hai giocato " + numUser + " la macchina gioca " + numRandom + "hai vinto la somma è pari";
+        vincitore = "hai vinto la somma è dispari";
         return vincitore;
 
     } else if (somma % 2 === 0 && wordUser === "dispari"){
-        vincitore = "hai giocato " + numUser + " la macchina gioca " + numRandom + "hai perso la somma è dispari";
-        console.log( vincitore + somma + "perde");
+        vincitore = "hai perso la somma è dispari";
+        console.log( vincitore);
         return vincitore;
 
     } else if (somma % 2 !== 0 && wordUser === "dispari" ){
-        vincitore = "hai giocato " + numUser + " la macchina gioca " + numRandom + "hai vinto la somma è dispari";
-        console.log(  vincitore + somma + "vince");
+        vincitore = "hai vinto la somma è dispari";
+        console.log(vincitore);
         return vincitore;
 
         //else: somma % 2 !== 0 && wordUser === "pari"
     } else { 
-        vincitore = "hai giocato " + numUser + " la macchina gioca " + numRandom + "hai perso la somma è dispari";
-        console.log( vincitore + somma + "perde");
+        vincitore = "hai perso la somma è dispari";
+        console.log(vincitore);
         return vincitore;
     }
 }
